@@ -6,7 +6,7 @@
 /*   By: gyong-si <gyong-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:23:05 by gyong-si          #+#    #+#             */
-/*   Updated: 2024/10/25 14:43:29 by gyong-si         ###   ########.fr       */
+/*   Updated: 2024/10/25 15:55:06 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ ClapTrap::~ClapTrap() {
 	std::cout << "ClapTrap " << this->_name << " is destroyed!" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy)
-{
+ClapTrap::ClapTrap(const ClapTrap &copy) {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = copy;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &a)
-{
+ClapTrap &ClapTrap::operator=(const ClapTrap &a) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &a)
 	{
@@ -44,8 +42,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &a)
 	return (*this);
 }
 
-void	ClapTrap::attack(const std::string& target)
-{
+void	ClapTrap::attack(const std::string& target) {
 	if (this->_energyPoint > 0 && this->_hitPoint > 0)
 	{
 		std::cout << "Claptrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage
@@ -60,8 +57,7 @@ void	ClapTrap::attack(const std::string& target)
 		<< " is not able to attack because energy is 0." << std::endl;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount)
-{
+void	ClapTrap::takeDamage(unsigned int amount) {
 	if (this->_hitPoint < amount)
 	{
 		std::cout << "ClapTrap " << this->_name << " takes " << amount << " of damage." << std::endl;
@@ -76,8 +72,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << this->_name << " has " << this->_hitPoint << " hitpoints left." << std::endl;
 }
 
-void	ClapTrap::beRepaired(unsigned int amount)
-{
+void	ClapTrap::beRepaired(unsigned int amount) {
 	if (this->_energyPoint > 0 && this->_hitPoint > 0)
 	{
 

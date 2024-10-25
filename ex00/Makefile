@@ -2,7 +2,7 @@ CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-TARGET = claptrap
+TARGET = a.out
 
 SRCS = ClapTrap.cpp \
 		main.cpp
