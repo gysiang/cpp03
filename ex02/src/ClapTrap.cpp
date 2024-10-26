@@ -6,18 +6,18 @@
 /*   By: gyong-si <gyong-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:23:05 by gyong-si          #+#    #+#             */
-/*   Updated: 2024/10/25 23:58:28 by gyong-si         ###   ########.fr       */
+/*   Updated: 2024/10/26 00:04:19 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("default"), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
+ClapTrap::ClapTrap() : _name("default"), _hitPoint(10), _energyPoint(10), _attackDamage(10) {
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string name) :
-	_name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
+	_name(name), _hitPoint(10), _energyPoint(10), _attackDamage(10) {
 	std::cout << "ClapTrap " << name << " is created!" << std::endl;
 }
 

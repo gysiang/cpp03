@@ -6,7 +6,7 @@
 /*   By: gyong-si <gyong-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:23:05 by gyong-si          #+#    #+#             */
-/*   Updated: 2024/10/25 15:55:06 by gyong-si         ###   ########.fr       */
+/*   Updated: 2024/10/25 22:59:47 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,41 +58,29 @@ void	ClapTrap::attack(const std::string& target) {
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	if (this->_hitPoint < amount)
+	// first check if claptrap is alive
+	if (this->_hitPoint == 0)
+		std::cout << "ClapTrap " << this->_name << " is already dead." << std::endl;
+	else if (this->_hitPoint < amount)
 	{
 		std::cout << "ClapTrap " << this->_name << " takes " << amount << " of damage." << std::endl;
-		this->_hitPoint -= amount;
+		std::cout << "ClapTrap " << this->_name << " died from this attack." << std::endl;
+		this->_hitPoint = 0;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " is already dead." << std::endl;
-		return ;
+		this->_hitPoint -= amount;
+		std::cout << "ClapTrap " << this->_name << " was attacked and lost " << amount << " hitpoints." << std::endl;
+		std::cout << "ClapTrap " << this->_name << " has " << this->_hitPoint << " hitpoints left." << std::endl;
 	}
-	std::cout << "ClapTrap " << this->_name << " was attacked and lost " << amount << " hitpoints." << std::endl;
-	std::cout << "ClapTrap " << this->_name << " has " << this->_hitPoint << " hitpoints left." << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 	if (this->_energyPoint > 0 && this->_hitPoint > 0)
 	{
-
 		this->_energyPoint--;
-		if (this->_hitPoint + amount > 10)
-		{
-			this->_hitPoint = 10;
-			std::cout << "ClapTrap " << this->_name << " has repaired itself to the max of 10 hitpoints." << std::endl;
-			return ;
-		}
-		else
-		{
-			if (this->_hitPoint == 10)
-			{
-				std::cout << "ClapTrap " << this->_name << " already has the max hitpoints. Repair Failed." << std::endl;
-				return ;
-			}
-			this->_hitPoint += amount;
-			std::cout << "ClapTrap " << this->_name << " repairs itself for " << amount << " of hitpoints" << std::endl;
-		}
+		this->_hitPoint += amount;
+		std::cout << "ClapTrap " << this->_name << " repairs itself for " << amount << " of hitpoints" << std::endl;
 	}
 	else if (this->_energyPoint == 0)
 		std::cout << "ClapTrap " << this->_name << " is unable to repair itself, it has 0 energy points." << std::endl;
