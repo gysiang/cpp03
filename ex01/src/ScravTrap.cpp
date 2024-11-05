@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScravTrap.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyong-si <gyong-si@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:55:17 by gyong-si          #+#    #+#             */
-/*   Updated: 2024/10/25 17:04:33 by gyong-si         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:08:56 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ScravTrap::ScravTrap(const std::string name) : ClapTrap(name) {
 	this->_energyPoint = 50;
 	this->_attackDamage = 20;
 	this->_guarding_gate = false;
-	std::cout << "ScravTrap Constructor for" << this->_name << " called" << std::endl;
+	std::cout << "ScravTrap Constructor for " << this->_name << " called" << std::endl;
 }
 
 ScravTrap::~ScravTrap() {
@@ -68,8 +68,11 @@ void ScravTrap::guardGate(void)
 	if (this->_guarding_gate == false)
 	{
 		this->_guarding_gate = true;
-		std::cout << "ScravTrap " << this->_name << " is now guarding the gate." << std::endl;
+		std::cout << "ScravTrap " << this->_name << " is in Gate Keeper mode." << std::endl;
 	}
-	else
-		std::cout << "ScravTrap " << this->_name << " is already guarding the gate!" << std::endl;
+	else if (this->_guarding_gate == true)
+	{
+		this->_guarding_gate = false;
+		std::cout << "ScravTrap " << this->_name << " is NOT in Gate Keeper mode." << std::endl;
+	}
 }
