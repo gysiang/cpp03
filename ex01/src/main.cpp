@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
+/*   By: gyong-si <gyong-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:56:25 by gyong-si          #+#    #+#             */
-/*   Updated: 2024/11/05 13:08:46 by gyong-si         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:39:32 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScravTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main()
 {
-	ScravTrap a;
-	ScravTrap b("Ivan");
+	ScavTrap a;
+	ScavTrap b("Ivan");
 
 	// Test the guardgate feature;
 	a.attack("Something");

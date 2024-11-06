@@ -6,7 +6,7 @@
 /*   By: gyong-si <gyong-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 00:20:04 by gyong-si          #+#    #+#             */
-/*   Updated: 2024/10/26 12:24:29 by gyong-si         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:41:48 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main()
 	a.highFivesGuys();
 	a.attack("some guy");
 	a.takeDamage(150); // dies from this attack
+	a.highFivesGuys();
 	a.takeDamage(1); // should not take more hits as its dead
 	b.highFivesGuys();
 	return (0);

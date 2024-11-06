@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScravTrap.cpp                                      :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyong-si <gyongsi@student.42.fr>           +#+  +:+       +#+        */
+/*   By: gyong-si <gyong-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:55:17 by gyong-si          #+#    #+#             */
-/*   Updated: 2024/11/05 13:08:56 by gyong-si         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:39:18 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScravTrap.hpp"
+#include "ScavTrap.hpp"
 
-ScravTrap::ScravTrap() : ClapTrap() {
+ScavTrap::ScavTrap() : ClapTrap() {
 	this->_hitPoint = 100;
 	this->_energyPoint = 50;
 	this->_attackDamage = 20;
@@ -20,7 +20,7 @@ ScravTrap::ScravTrap() : ClapTrap() {
 	std::cout << "ScravTrap Default Constructor called" << std::endl;
 }
 
-ScravTrap::ScravTrap(const std::string name) : ClapTrap(name) {
+ScavTrap::ScavTrap(const std::string name) : ClapTrap(name) {
 	this->_hitPoint = 100;
 	this->_energyPoint = 50;
 	this->_attackDamage = 20;
@@ -28,16 +28,16 @@ ScravTrap::ScravTrap(const std::string name) : ClapTrap(name) {
 	std::cout << "ScravTrap Constructor for " << this->_name << " called" << std::endl;
 }
 
-ScravTrap::~ScravTrap() {
+ScavTrap::~ScavTrap() {
 	std::cout << "ScravTrap Deconstructor called" << std::endl;
 }
 
-ScravTrap::ScravTrap(const ScravTrap &a) : ClapTrap(a) {
+ScavTrap::ScavTrap(const ScavTrap &a) : ClapTrap(a) {
 	this->_guarding_gate = a._guarding_gate;
 	std::cout << "ScavTrap Copy Constructor called" << std::endl;
 }
 
-ScravTrap &ScravTrap::operator=(const ScravTrap &a) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &a) {
 	std::cout << "ScravTrap Copy assignment operator called" << std::endl;
 	if (this != &a)
 	{
@@ -49,7 +49,7 @@ ScravTrap &ScravTrap::operator=(const ScravTrap &a) {
 	return (*this);
 }
 
-void ScravTrap::attack(const std::string &target)
+void ScavTrap::attack(const std::string &target)
 {
 	if (this->_energyPoint > 0 && this->_hitPoint > 0)
 	{
@@ -63,9 +63,13 @@ void ScravTrap::attack(const std::string &target)
 		std::cout << "ScavTrap " << this->_name << " has no more hitpoints." << std::endl;
 }
 
-void ScravTrap::guardGate(void)
+void ScavTrap::guardGate(void)
 {
-	if (this->_guarding_gate == false)
+	if (this->_hitPoint == 0)
+	{
+		std::cout << "ScravTrap " << this->_name << " is already dead." << std::endl;
+	}
+	else if (this->_guarding_gate == false)
 	{
 		this->_guarding_gate = true;
 		std::cout << "ScravTrap " << this->_name << " is in Gate Keeper mode." << std::endl;

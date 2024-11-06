@@ -6,7 +6,7 @@
 /*   By: gyong-si <gyong-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 00:19:48 by gyong-si          #+#    #+#             */
-/*   Updated: 2024/10/26 12:35:48 by gyong-si         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:42:06 by gyong-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,8 @@ FragTrap &FragTrap::operator=(const FragTrap &a) {
 }
 
 void	FragTrap::highFivesGuys(void) {
-	std::cout << "\033[0;31mFragTrap " << this->_name << ": Gives you a high five!\033[0m " << std::endl;
-};
+	if (this->_hitPoint > 0)
+		std::cout << "\033[0;31mFragTrap " << this->_name << ": Gives you a high five!\033[0m " << std::endl;
+	else
+		std::cout << "\033[0;31mFragTrap " << this->_name << " is already dead!\033[0m " << std::endl;
+}
